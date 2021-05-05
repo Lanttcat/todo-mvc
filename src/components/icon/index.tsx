@@ -5,6 +5,7 @@ interface IProps {
   type: string
   className?: string
   onClick?: (e?: React.MouseEvent<HTMLSpanElement>) => void
+  role?: string
 }
 
 const Icon: React.FC<IProps> = (props: IProps) => {
@@ -16,6 +17,7 @@ const Icon: React.FC<IProps> = (props: IProps) => {
     <span
       className={cn("iconfont", `icon${props.type}`, props.className)}
       onClick={handleClick}
+      role={props.role}
     />
   )
 }

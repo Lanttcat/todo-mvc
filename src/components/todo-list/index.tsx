@@ -5,10 +5,11 @@ import styles from './index.module.scss'
 
 interface IProp {
   tasks: Task[]
+  onRemoveTask: (task: Task) => void
 }
 
 
-const TodoList: React.FC<IProp> = ({tasks}) => {
+const TodoList: React.FC<IProp> = ({tasks, onRemoveTask}) => {
   const renderTaskItem = (task: Task) => {
     return (
       <div key={task.id} className={styles.item}>
@@ -19,7 +20,7 @@ const TodoList: React.FC<IProp> = ({tasks}) => {
           {task.content}
         </p>
         <span className={styles.close}>
-          <Icon type='close' className={styles.icon} />
+          <Icon role="remove-todo-item" type='close' className={styles.icon} onClick={() => onRemoveTask(task)}/>
         </span>
       </div>
     )
