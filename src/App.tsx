@@ -59,6 +59,7 @@ function App() {
           onFilter={handleTaskFilter}
           leftCount={activeTask.length}
           onClearCompleted={handleClearCompleted}
+          showClear={activeTask.length !== todoList.length}
         />
       </main>
     </div>

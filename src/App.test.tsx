@@ -2,7 +2,6 @@ import React from 'react';
 import { fireEvent, screen } from '@testing-library/react';
 import App from './App';
 import { render } from "./helper/test-helper";
-import { GetByText } from "@testing-library/dom/types/queries";
 
 describe('App component', () => {
   const setup = () => {
