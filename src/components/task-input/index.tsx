@@ -37,6 +37,7 @@ const TaskInput: React.FC<IProps> = () => {
         value={task}
         onChange={(event) => setTask(event.target.value)}
         onKeyPress={handleEnterPress}
+        title={'Input a new task'}
       />
     </div>
   )

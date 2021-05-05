@@ -17,6 +17,9 @@
       margin: 0.4rem 0;
       text-align: left;
       width: 570px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
     }
 
     .done {
@@ -30,6 +33,7 @@
       width: 20px;
       min-width: 20px;
       height: 20px;
+      cursor: pointer;
 
       &:hover {
         color: darkgreen;
