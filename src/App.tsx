@@ -11,7 +11,7 @@ function App() {
   const todoList = useRecoilValue(todoListSelector);
   const [_, setTodoList] = useRecoilState(todoListState);
   const activeTask = todoList.filter(x => x.status !== 'done')
-  const [showTaskList, setShowTaskList] = useState(todoList)
+  const [showTaskList, setShowTaskList] = useState<Task[]>([])
   const [filter, setFilter] = useState<taskFilterType>('all')
   
   useEffect(() => {
@@ -24,7 +24,7 @@ function App() {
     if (filter === 'active') {
       setShowTaskList(todoList.filter(x => x.status === 'active'))
     }
-  }, [filter])
+  }, [filter, todoList])
   
   const handleTaskComplete = (task: Task) => {
     const newList: Task[] = todoList.map(x => {
@@ -54,7 +54,7 @@ function App() {
       <Header />
       <main className={styles.main}>
         <TaskInput />
-        <TaskList tasks={todoList} onComplete={handleTaskComplete}  onRemoveTask={handleRemoveTask}/>
+        <TaskList tasks={showTaskList} onComplete={handleTaskComplete}  onRemoveTask={handleRemoveTask}/>
         <TaskTools
           onFilter={handleTaskFilter}
           leftCount={activeTask.length}

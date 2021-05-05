@@ -14,6 +14,7 @@ describe('App component', () => {
       ...utils,
     }
   }
+  
   test('should render added task', () => {
     const { input, getByText } = setup();
     fireEvent.change(input, { target: { value: 'task1' } });
@@ -55,6 +56,39 @@ describe('App component', () => {
     const listItem1ElementAfterRemove = queryByText('task1')
     
     expect(listItem1ElementAfterRemove).toBe(null)
+  })
+  
+  test('should filter task by status', () => {
+    const { input, getByText, getAllByRole, queryByText } = setup();
+    
+    setupTasks(input)
+  
+    const completeBtns = getAllByRole('complete-todo-item')
+    fireEvent.click(completeBtns[1])
+    
+    const doneBtn = getByText('done')
+    fireEvent.click(doneBtn)
+    const listItem1ElementAfterDoneFiler = queryByText('task1')
+    const listItem2ElementAfterDoneFiler = queryByText('task2')
+    
+    expect(listItem1ElementAfterDoneFiler).toBeInTheDocument()
+    expect(listItem2ElementAfterDoneFiler).toBe(null)
+  
+    const activeBtn = getByText('active')
+    fireEvent.click(activeBtn)
+    const listItem1ElementAfterActiveFiler = queryByText('task1')
+    const listItem2ElementAfterActiveFiler = queryByText('task2')
+  
+    expect(listItem1ElementAfterActiveFiler).toBe(null)
+    expect(listItem2ElementAfterActiveFiler).toBeInTheDocument()
+  
+    const allBtn = getByText('all')
+    fireEvent.click(allBtn)
+    const listItem1ElementAfterAllFiler = queryByText('task1')
+    const listItem2ElementAfterAllFiler = queryByText('task2')
+  
+    expect(listItem1ElementAfterAllFiler).toBeInTheDocument()
+    expect(listItem2ElementAfterAllFiler).toBeInTheDocument()
   })
   
   const setupTasks = (input: HTMLInputElement) => {
