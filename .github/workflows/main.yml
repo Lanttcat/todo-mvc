@@ -1,0 +1,29 @@
+name: Build and Deploy
+on: [push]
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout 🛎️
+        uses: actions/checkout@v2.3.1
+
+      - name: Install
+        uses: borales/actions-yarn@v2.3.0
+        with:
+          cmd: install
+          
+      - name: Test
+        uses: borales/actions-yarn@v2.3.0
+        with:
+          cmd: test
+          
+      - name: Install
+        uses: borales/actions-yarn@v2.3.0
+        with:
+          cmd: build
+
+      - name: Deploy 🚀
+        uses: JamesIves/github-pages-deploy-action@4.1.1
+        with:
+          branch: gh-pages
+          folder: build
