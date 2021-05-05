@@ -8,7 +8,7 @@ import { todoListState } from "../../states/atoms/todo";
 import { todoListSelector } from "../../states/selectors/todo";
 
 
-const TodoInput = () => {
+const TaskInput = () => {
   const [task, setTask] = useState<string>('');
   const [_, setTodoList] = useRecoilState(todoListState);
   const todoList = useRecoilValue(todoListSelector);
@@ -41,4 +41,4 @@ const TodoInput = () => {
   )
 }
 
-export default React.memo(TodoInput)
+export default React.memo(TaskInput)

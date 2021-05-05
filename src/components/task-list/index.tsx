@@ -1,5 +1,5 @@
 import * as React from 'react';
-import Icon from "../icon";
+import { Icon } from '..';
 
 import styles from './index.module.scss'
 
@@ -9,7 +9,7 @@ interface IProp {
 }
 
 
-const TodoList: React.FC<IProp> = ({tasks, onRemoveTask}) => {
+const TaskList: React.FC<IProp> = ({tasks, onRemoveTask}) => {
   const renderTaskItem = (task: Task) => {
     return (
       <div key={task.id} className={styles.item}>
@@ -32,4 +32,4 @@ const TodoList: React.FC<IProp> = ({tasks, onRemoveTask}) => {
   )
 }
 
-export default React.memo(TodoList)
+export default React.memo(TaskList)
