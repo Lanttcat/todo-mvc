@@ -20,7 +20,7 @@ const TaskList: React.FC<IProp> = ({tasks, onRemoveTask, onComplete}) => {
           className={styles.status}
           onClick={() => onComplete(task)}
           href='/#'
-          role="complete-todo-item-button">
+          role="button">
           {
             task.status === 'done' &&
             <Icon type='seleted' className={styles.icon} />

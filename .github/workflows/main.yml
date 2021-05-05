@@ -11,13 +11,13 @@ jobs:
         uses: borales/actions-yarn@v2.3.0
         with:
           cmd: install
-          
+
       - name: Test
         uses: borales/actions-yarn@v2.3.0
         with:
           cmd: test
-          
-      - name: Install
+
+      - name: Build
         uses: borales/actions-yarn@v2.3.0
         with:
           cmd: build

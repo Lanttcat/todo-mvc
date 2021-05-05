@@ -19,10 +19,10 @@ const TaskTools: React.FC<IProps> = ({leftCount, onFilter, onClearCompleted, sho
       <p className={styles.filter}>
         {
           ALL_FILTER.map((x) => (
-            <>
+            <span key={x}>
               <input onClick={() => onFilter(x)} type="radio" name='filter' id={x} defaultChecked={x === 'all'}/>
               <label key={x} htmlFor={x} title={`filter task by status is ${x}`}>{x}</label>
-            </>
+            </span>
           ))
         }
       </p>
