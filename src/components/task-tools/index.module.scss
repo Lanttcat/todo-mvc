@@ -42,9 +42,11 @@
   }
 
   .clear {
+    padding-right: 0;
     background: white;
     border: none;
     color: #525252;
+    text-align: right;
 
     &:hover {
       color: darkgreen;
