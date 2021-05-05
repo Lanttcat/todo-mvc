@@ -7,8 +7,9 @@ import { useRecoilState, useRecoilValue } from "recoil";
 import { todoListState } from "../../states/atoms/todo";
 import { todoListSelector } from "../../states/selectors/todo";
 
+interface IProps {}
 
-const TaskInput = () => {
+const TaskInput: React.FC<IProps> = () => {
   const [task, setTask] = useState<string>('');
   const [_, setTodoList] = useRecoilState(todoListState);
   const todoList = useRecoilValue(todoListSelector);
