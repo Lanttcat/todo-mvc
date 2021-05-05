@@ -1,9 +1,9 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
-import App from '../index';
+import Header from '../index';
 
 test('Header component', () => {
-  render(<App />);
+  render(<Header />);
   const linkElement = screen.getByText(/TODO MVC/i);
   expect(linkElement).toBeInTheDocument();
 });
