@@ -15,7 +15,12 @@ const TaskList: React.FC<IProp> = ({tasks, onRemoveTask, onComplete}) => {
   const renderTaskItem = (task: Task) => {
     return (
       <div key={task.id} className={styles.item}>
-        <a title={`Complete ${task.content} task`} className={styles.status} onClick={() => onComplete(task)} role="complete-todo-item">
+        <a
+          title={`Complete ${task.content} task`}
+          className={styles.status}
+          onClick={() => onComplete(task)}
+          href='/#'
+          role="complete-todo-item-button">
           {
             task.status === 'done' &&
             <Icon type='seleted' className={styles.icon} />
@@ -24,7 +29,11 @@ const TaskList: React.FC<IProp> = ({tasks, onRemoveTask, onComplete}) => {
         <p className={cn(styles.content, {[styles.done]: task.status === 'done'})}>
           {task.content}
         </p>
-        <a title={`Remove ${task.content} task`} className={styles.close}>
+        <a
+          href='/#'
+          title={`Remove ${task.content} task`}
+          className={styles.close}
+        >
           <Icon role="remove-todo-item" type='close' className={styles.icon} onClick={() => onRemoveTask(task)}/>
         </a>
       </div>

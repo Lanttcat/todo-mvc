@@ -47,7 +47,7 @@ describe('App component', () => {
     
     setupTasks(input)
   
-    const completeBtns = getAllByRole('complete-todo-item')
+    const completeBtns = getAllByRole('complete-todo-item-button')
     fireEvent.click(completeBtns[1])
     
     const clearBtn = getByText('Clear completed')
@@ -62,7 +62,7 @@ describe('App component', () => {
     
     setupTasks(input)
   
-    const completeBtns = getAllByRole('complete-todo-item')
+    const completeBtns = getAllByRole('complete-todo-item-button')
     fireEvent.click(completeBtns[1])
     
     const doneBtn = getByText('done')

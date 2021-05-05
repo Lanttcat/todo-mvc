@@ -9,7 +9,7 @@ import { todoListState } from "./states/atoms/todo";
 
 function App() {
   const todoList = useRecoilValue(todoListSelector);
-  const [_, setTodoList] = useRecoilState(todoListState);
+  const [, setTodoList] = useRecoilState(todoListState);
   const activeTask = todoList.filter(x => x.status !== 'done')
   const [showTaskList, setShowTaskList] = useState<Task[]>([])
   const [filter, setFilter] = useState<taskFilterType>('all')

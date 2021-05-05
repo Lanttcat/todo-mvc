@@ -11,7 +11,7 @@ interface IProps {}
 
 const TaskInput: React.FC<IProps> = () => {
   const [task, setTask] = useState<string>('');
-  const [_, setTodoList] = useRecoilState(todoListState);
+  const [, setTodoList] = useRecoilState(todoListState);
   const todoList = useRecoilValue(todoListSelector);
   
   const handleEnterPress = (event: KeyboardEvent<HTMLInputElement>) => {
